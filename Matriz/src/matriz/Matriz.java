@@ -16,15 +16,19 @@ public class Matriz {
     public static void main(String[] args) {
         // TODO code application logic here
         int matrizf = 5;
-        int matrizc = 3;
+        int matrizc = 5;
         int matrizi = 10;
-        for (int e = 0; e < matrizc;e++) {
-            matrizi = matrizi - e;
+        int matrizn = matrizi;
+        for (int e = 0; e < matrizc; e++) {
             System.out.println();
-        for (int i = 0; i < matrizf;i++) {
-            System.out.print((matrizi-i)+"  ");
+            matrizi=-e;
+            int i = 0;
+            do {
+                System.out.print(((matrizi - i)+matrizn) + " ");
+                i++;
+            } while (i < matrizf);
         }
-    }
+
     }
 
 }
