@@ -52,7 +52,6 @@ public class PrimeNumber {
         //Hacemos la raiz para obtener el numero maximo a alcanzar, porque un numero primo solo tiene dos factores 1 que ya lo descartamos y su raiz
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
-                System.out.println(number);
                 return false;
             }
         }
