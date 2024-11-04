@@ -50,23 +50,15 @@ public class Tarot {
     public static void main(String[] args) {
         // TODO code application logic here
         Tarot tarot = new tarot.Tarot(0, 0, 0);
-        tarot.calculateTarot(29, 2, -12);
+        System.out.println("Tu numero del tarot es "+tarot.calculateTarot(28, 2, 500));
     }
 
     public boolean isLeapYear(int year) {
 
         if (year % 4 == 0 && year % 100 != 0) {
-            System.out.println("si isLeapYear");
             return true;
 
-        } else if (year % 400 == 0) {
-            System.out.println("si isLeapYear");
-            return true;
-
-        } else {
-            System.out.println("no isLeapYear");
-            return false;
-        }
+        } else return year % 400 == 0;
     }
 
     public boolean checkDate(int day, int month, int year) {
@@ -78,17 +70,19 @@ public class Tarot {
         if (month <= 12 && month > 0) {
             switch (month) {
                 case 1, 3, 5, 7, 8, 10, 12:
-                    if (day <= 31) {return true;} else { return false; }
+                return day <= 31;
+
                     
                 case 4, 6, 9, 11:
-                    if (day <= 30) {return true;} else { return false; }
+                return day <= 30;
+
                     
                 case 2:
                     boolean leapYear = isLeapYear(year);
                     if (leapYear == true) {
-                        if (day <= 29) {return true;} else { return false; }
+                return day <= 29;
                     } else {
-                        if (day <= 28) {return true;} else { return false; }
+                return day <= 28;
                     }
             }
 
@@ -99,9 +93,16 @@ public class Tarot {
 
     public int calculateTarot(int day, int month, int year) {
         if (checkDate(day, month, year)){
-            System.out.println("si");
-            
-            
+            int number = day + month +year;
+                    while (number >= 10) {
+            int sum = 0;
+            while (number > 0) {
+                sum += number % 10;
+                number /= 10;
+            }
+            number = sum;
+        }
+        return number;
             
             
             
