@@ -50,21 +50,18 @@ public class Tarot {
     public static void main(String[] args) {
         // TODO code application logic here
         Tarot tarot = new tarot.Tarot(0, 0, 0);
-        tarot.calculateTarot(29, 2, -12);
+        System.out.println("Tu numero del tarot es "+tarot.calculateTarot(28, 2, 500));
     }
 
     public boolean isLeapYear(int year) {
 
         if (year % 4 == 0 && year % 100 != 0) {
-            System.out.println("si isLeapYear");
             return true;
 
         } else if (year % 400 == 0) {
-            System.out.println("si isLeapYear");
             return true;
 
         } else {
-            System.out.println("no isLeapYear");
             return false;
         }
     }
@@ -99,9 +96,16 @@ public class Tarot {
 
     public int calculateTarot(int day, int month, int year) {
         if (checkDate(day, month, year)){
-            System.out.println("si");
-            
-            
+            int number = day + month +year;
+                    while (number >= 10) {
+            int sum = 0;
+            while (number > 0) {
+                sum += number % 10;
+                number /= 10;
+            }
+            number = sum;
+        }
+        return number;
             
             
             
