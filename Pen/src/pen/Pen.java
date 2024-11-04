@@ -12,14 +12,26 @@ public class Pen {
 
     private int ink = 30;
 
+    /**
+     * Cantida de tinta que tiene el objeto.
+     *
+     * @return
+     */
     public int getInk() {
         return ink;
     }
 
+    /**
+     *
+     * @param ink modificacion a la cantidad de tinta, por defecto 30.
+     */
     public void setInk(int ink) {
         this.ink = ink;
     }
 
+    /**
+     * Objeto de tipo Pen .
+     */
     public Pen() {
     }
 
