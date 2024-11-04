@@ -13,7 +13,6 @@ public class WorkingDay {
     private char quenda;
     private char dia;
     private int horas;
-    private int h;
 
     /**
      * 'd' si es diurna 'n' si es nocturna
