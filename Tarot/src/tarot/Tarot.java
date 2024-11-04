@@ -75,17 +75,19 @@ public class Tarot {
         if (month <= 12 && month > 0) {
             switch (month) {
                 case 1, 3, 5, 7, 8, 10, 12:
-                    if (day <= 31) {return true;} else { return false; }
+                return day <= 31;
+
                     
                 case 4, 6, 9, 11:
-                    if (day <= 30) {return true;} else { return false; }
+                return day <= 30;
+
                     
                 case 2:
                     boolean leapYear = isLeapYear(year);
                     if (leapYear == true) {
-                        if (day <= 29) {return true;} else { return false; }
+                return day <= 29;
                     } else {
-                        if (day <= 28) {return true;} else { return false; }
+                return day <= 28;
                     }
             }
 
