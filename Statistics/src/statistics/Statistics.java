@@ -34,32 +34,30 @@ public class Statistics {
         statistic1.median[5] = 87;
         statistic1.median[6] = 10;
 
-        statistic1.median();
-
+        System.out.println("La mediana es " + statistic1.median());
     }
 
     public int median() {
 
-        int masBajo = Integer.MAX_VALUE;
-        int masAlto = Integer.MIN_VALUE;
-
         for (int med : median) {
-            System.out.println();
-            if (med < masBajo) {
-                masBajo = med;
-                System.out.println(med);
+            int biggers = 0;
+            int lowers = 0;
+
+            for (int i = 0; i < median.length; i++) {
+                if (med != median[i]) {
+                    if (med > median[i]) {
+                        lowers++;
+                    }
+                    if (med < median[i]) {
+                        biggers++;
+                    }
+                }
             }
-            if (med > masAlto) {
-                masAlto = med;
-                System.out.println(med);
+
+            if (biggers == lowers) {
+                return med;
             }
         }
-        int midleNumber = ((masAlto - masBajo) / 2) + masBajo;
-
-        int masCercano;
-        for (int med : median) {
-            masCercano = med - midleNumber;
-        }// el numero mas cercano a 0 es
         return 0;
     }
 
