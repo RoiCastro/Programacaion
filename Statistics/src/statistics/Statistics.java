@@ -12,10 +12,18 @@ public class Statistics {
 
     private int[] median = new int[7];
 
+    /**
+     * Obtine el valor del atributo 'median' 
+     * @return 
+     */
     public int[] getMedian() {
         return median;
     }
-
+    
+    /**
+     * Establece el valor de la variable 'median'
+     * @param median 
+     */
     public void setMedian(int[] median) {
         this.median = median;
     }
@@ -37,6 +45,10 @@ public class Statistics {
         System.out.println("La mediana es " + statistic1.median());
     }
 
+    /**
+     * Este metodo devulve la media de un array de numeros
+     * @return 
+     */
     public int median() {
 
         for (int med : median) {
