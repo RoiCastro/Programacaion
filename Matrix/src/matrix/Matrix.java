@@ -12,8 +12,8 @@ import java.util.Scanner;
  */
 public class Matrix {
 
-    private int ancho=3;
-    private int alto=3;
+    private int ancho = 3;
+    private int alto = 3;
     private int[][] matriz = new int[ancho][alto];
 
     public int[][] getMatriz() {
@@ -24,20 +24,20 @@ public class Matrix {
         this.matriz = matriz;
     }
 
-    
-    
-        private void ponerDatos() {
+    private void ponerDatos() {
         Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < (alto*ancho); i++) {
-            System.out.println();
-            System.out.println("Escribe la nota del alumuno " + i);
-            matriz[i][i] = scanner.nextInt();
-            String porque = scanner.nextLine();
-            System.out.println();
+        for (int i = 0; i < alto; i++) {
+            for (int j = 0; j < ancho; j++) {
+                System.out.println();
+                System.out.println("Escribe la fila " + i + " columna " + j);
+                matriz[i][j] = scanner.nextInt();
+                String porque = scanner.nextLine();
+                System.out.println();
+            }
         }
-
     }
+
     /**
      * @param args the command line arguments
      */
@@ -45,10 +45,21 @@ public class Matrix {
         // TODO code application logic here
         Matrix maztriz1 = new Matrix();
         Matrix maztriz2 = new Matrix();
-        
-        
-        
-        
+
+        maztriz1.ponerDatos();
+        //maztriz2.ponerDatos();
+
+        maztriz1.show();
     }
 
+    public void show() {
+        for (int i = 0; i < alto; i++) {
+            System.out.println();
+            for (int j = 0; j < ancho; j++) {
+            System.out.print(  matriz[i][j]+"  ");
+            
+            
+            }
+        }
+    }
 }
