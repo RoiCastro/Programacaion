@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package matrix;
+package adventcalendar;
 
 import java.util.Scanner;
 
@@ -10,10 +10,10 @@ import java.util.Scanner;
  *
  * @author roi.castrocalvar
  */
-public class Matrix {
+public class AdventCalendar {
 
-    private int ancho = 3;
-    private int alto = 3;
+    private int ancho = 4;
+    private int alto = 6;
     private int[][] matriz = new int[alto][ancho];
 
     /**
@@ -69,7 +69,7 @@ public class Matrix {
     public void setMatriz(int[][] matriz) {
         this.matriz = matriz;
     }
-
+    
     private void ponerDatos() {
         Scanner scanner = new Scanner(System.in);
 
@@ -77,12 +77,26 @@ public class Matrix {
             for (int j = 0; j < ancho; j++) {
                 System.out.println();
                 System.out.println("Escribe la fila " + i + " columna " + j);
-                matriz[i][j] = scanner.nextInt();
-                String porque = scanner.nextLine();
-                System.out.println();
+                //matriz[i][j] = scanner.nextInt();
+                matriz[i][j] = 4;
+                //String porque = scanner.nextLine();
+        System.out.println();
             }
         }
+        String porque = scanner.nextLine();
     }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        AdventCalendar calendario1 =new AdventCalendar();
+        
+        calendario1.ponerDatos();
+        calendario1.show();
+    }
+    
+
 
     private void show() {
         for (int i = 0; i < alto; i++) {
@@ -92,55 +106,5 @@ public class Matrix {
 
             }
         }
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Matrix matriz1 = new Matrix();
-        Matrix matriz2 = new Matrix();
-
-        matriz1.ponerDatos();
-        matriz2.ponerDatos();
-        
-        Matrix sumaMatriz = matriz1.sum(matriz2);
-        sumaMatriz.show();
-        
-        Matrix subtractMatriz = matriz1.subtract(matriz2);
-        subtractMatriz.show();
-    }
-
-
-    /**
-     * Suma dos matrices y devuelve el resultado.
-     * 
-     * @param otraMatriz la otr matriz que se sumara a la actual
-     * @return la matriz resultante de la suma de la actual y la otra
-     */
-    public Matrix sum(Matrix otraMatriz) {
-        Matrix resultado = new Matrix();
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
-                resultado.matriz[i][j]=this.matriz[i][j]+otraMatriz.matriz[i][j];
-            }
-        }
-        return resultado;
-    }
-    
-    /**
-     * Resta dos matrices y devuelve el resultado.
-     * 
-     * @param otraMatriz la otr matriz que se restara a la actual
-     * @return la matriz resultante de la suma de la actual y la otra
-     */
-    public Matrix subtract(Matrix otraMatriz) {
-        Matrix resultado = new Matrix();
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
-                resultado.matriz[i][j]=this.matriz[i][j]-otraMatriz.matriz[i][j];
-            }
-        }
-        return resultado;
     }
 }
