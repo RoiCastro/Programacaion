@@ -4,14 +4,17 @@
  */
 package statistics;
 
+import java.util.Scanner;
+
 /**
  *
  * @author roi.castrocalvar
  */
 public class Statistics {
 
-    private int[] median = new int[7];
-
+    private int arrayLength;
+    private int[] median = new int[arrayLength];
+    
     /**
      * Obtine el valor del atributo 'median' 
      * @return 
@@ -34,14 +37,9 @@ public class Statistics {
     public static void main(String[] args) {
         // TODO code application logic here
         Statistics statistic1 = new Statistics();
-        statistic1.median[0] = 16;
-        statistic1.median[1] = 12;
-        statistic1.median[2] = 99;
-        statistic1.median[3] = 95;
-        statistic1.median[4] = 18;
-        statistic1.median[5] = 87;
-        statistic1.median[6] = 10;
 
+        statistic1.lenghtArray();
+        statistic1.fillArray();
         System.out.println("La mediana es " + statistic1.median());
     }
 
@@ -72,5 +70,20 @@ public class Statistics {
         }
         return 0;
     }
-
+    
+    private int lenghtArray(){
+        Scanner scan = new Scanner(System.in);
+        do{
+            arrayLength= scan.nextInt();
+        }while(arrayLength%2==0);
+        return arrayLength;
+    }
+    
+    private void fillArray(){
+        Scanner scan = new Scanner(System.in);
+    
+        for (int i = 0; i < median.length; i++) {
+            median[i]=scan.nextInt();
+        }
+    }
 }

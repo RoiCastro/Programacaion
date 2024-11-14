@@ -4,6 +4,7 @@
  */
 package adventcalendar;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -80,6 +81,7 @@ public class AdventCalendar {
         calendario1.fill();
         calendario1.show();
     }
+
     public void show() {
         for (int i = 0; i < alto; i++) {
             System.out.println();
@@ -88,16 +90,46 @@ public class AdventCalendar {
             }
         }
     }
-    
+
+    /**
+     * Comproba se o array "matriz" contén un determinado valor
+     *
+     * @param value Valor que se quere comprobar se está ou non en "matriz"
+     * @return true se o valor recibido está en "matriz", false en caso
+     * contrario
+     */
+    private boolean contains(int value) {
+        for (int i = 0; i < alto; i++) {
+            for (int j = 0; j < ancho; j++) {
+                if (matriz[i][j] == value) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     */
     public void fill() {
         for (int i = 0; i < alto; i++) {
             for (int j = 0; j < ancho; j++) {
-                int value = new java.util.Random().nextInt(24);
+                int value;
+                do {
+                    value = new java.util.Random().nextInt(24) + 1;
+                } while (contains(value));
+
                 matriz[i][j] = value;
+
             }
         }
 
     }
-
+    public void eat() {
+        for(int i=1; i<=(alto*ancho);i++){
+            
+        }
+    }
 
 }
