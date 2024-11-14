@@ -18,7 +18,7 @@ public class AdventCalendar {
 
     /**
      * Obtiene el ancho de la matriz.
-     * 
+     *
      * @return el ancho de la matriz
      */
     public int getAncho() {
@@ -27,7 +27,7 @@ public class AdventCalendar {
 
     /**
      * Establece el ancho de la matriz.
-     * 
+     *
      * @param ancho el ancho a establecer para la matriz
      */
     public void setAncho(int ancho) {
@@ -36,7 +36,7 @@ public class AdventCalendar {
 
     /**
      * Obtiene el alto de la matriz.
-     * 
+     *
      * @return el alto de la matriz
      */
     public int getAlto() {
@@ -45,7 +45,7 @@ public class AdventCalendar {
 
     /**
      * Establece el alto de la matriz.
-     * 
+     *
      * @param alto el alto a establecer para la matriz
      */
     public void setAlto(int alto) {
@@ -54,7 +54,7 @@ public class AdventCalendar {
 
     /**
      * Obtiene la matriz.
-     * 
+     *
      * @return la matriz en forma de arreglo bidimensional
      */
     public int[][] getMatriz() {
@@ -63,48 +63,41 @@ public class AdventCalendar {
 
     /**
      * Establece los valores de la matriz.
-     * 
+     *
      * @param matriz la matriz a establecer
      */
     public void setMatriz(int[][] matriz) {
         this.matriz = matriz;
     }
-    
-    private void ponerDatos() {
-        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
-                System.out.println();
-                System.out.println("Escribe la fila " + i + " columna " + j);
-                //matriz[i][j] = scanner.nextInt();
-                matriz[i][j] = 4;
-                //String porque = scanner.nextLine();
-        System.out.println();
-            }
-        }
-        String porque = scanner.nextLine();
-    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        AdventCalendar calendario1 =new AdventCalendar();
-        
-        calendario1.ponerDatos();
+        AdventCalendar calendario1 = new AdventCalendar();
+
+        calendario1.fill();
         calendario1.show();
     }
-    
-
-
-    private void show() {
+    public void show() {
         for (int i = 0; i < alto; i++) {
             System.out.println();
             for (int j = 0; j < ancho; j++) {
                 System.out.print(matriz[i][j] + "  ");
-
             }
         }
     }
+    
+    public void fill() {
+        for (int i = 0; i < alto; i++) {
+            for (int j = 0; j < ancho; j++) {
+                int value = new java.util.Random().nextInt(24);
+                matriz[i][j] = value;
+            }
+        }
+
+    }
+
+
 }
