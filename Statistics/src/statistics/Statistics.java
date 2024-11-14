@@ -7,83 +7,98 @@ package statistics;
 import java.util.Scanner;
 
 /**
- *
+ * Clase Statistics que permite calcular la mediana de un arreglo de números.
+ * Requiere un arreglo de longitud impar para calcular la mediana.
+ * 
  * @author roi.castrocalvar
  */
 public class Statistics {
 
     private int arrayLength;
-    private int[] median = new int[arrayLength];
-    
+    private int[] median;
+
     /**
-     * Obtine el valor del atributo 'median' 
-     * @return 
+     * Obtiene el valor del atributo 'median'
+     * 
+     * @return el arreglo de números del cual se va a calcular la mediana
      */
     public int[] getMedian() {
         return median;
     }
-    
+
     /**
-     * Establece el valor de la variable 'median'
-     * @param median 
+     * Establece el valor del atributo 'median'
+     * 
+     * @param median el arreglo de números del cual se va a calcular la mediana
      */
     public void setMedian(int[] median) {
         this.median = median;
     }
 
     /**
-     * @param args the command line arguments
+     * Método principal para iniciar la aplicación. Permite al usuario ingresar
+     * el tamaño del arreglo y sus valores, luego calcula y muestra la mediana.
+     * 
+     * @param args argumentos de la línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         Statistics statistic1 = new Statistics();
-
-        statistic1.lenghtArray();
+        statistic1.lengthArray();
         statistic1.fillArray();
         System.out.println("La mediana es " + statistic1.median());
     }
 
     /**
-     * Este metodo devulve la media de un array de numeros
-     * @return 
+     * Calcula la mediana de un arreglo de números.
+     * La mediana es el valor central cuando el arreglo está ordenado.
+     * 
+     * @return el valor de la mediana si existe; 0 si no se puede calcular
      */
     public int median() {
-
         for (int med : median) {
-            int biggers = 0;
-            int lowers = 0;
+            int mayores = 0;
+            int menores = 0;
 
             for (int i = 0; i < median.length; i++) {
                 if (med != median[i]) {
                     if (med > median[i]) {
-                        lowers++;
+                        menores++;
                     }
                     if (med < median[i]) {
-                        biggers++;
+                        mayores++;
                     }
                 }
             }
 
-            if (biggers == lowers) {
+            if (mayores == menores) {
                 return med;
             }
         }
         return 0;
     }
-    
-    private int lenghtArray(){
+
+    /**
+     * Solicita al usuario ingresar la longitud del arreglo, asegurándose
+     * de que sea un número impar.
+     */
+    private void lengthArray() {
         Scanner scan = new Scanner(System.in);
-        do{
-            arrayLength= scan.nextInt();
-        }while(arrayLength%2==0);
-        return arrayLength;
+        do {
+            System.out.println("Introduce un número impar para la longitud del arreglo.");
+            arrayLength = scan.nextInt();
+        } while (arrayLength % 2 == 0);
+
+        median = new int[arrayLength];
     }
-    
-    private void fillArray(){
+
+    /**
+     * Solicita al usuario llenar el arreglo con números enteros.
+     */
+    private void fillArray() {
         Scanner scan = new Scanner(System.in);
-    
         for (int i = 0; i < median.length; i++) {
-            median[i]=scan.nextInt();
+            System.out.println("Introduce el número en la posición " + i + ":");
+            median[i] = scan.nextInt();
         }
     }
 }
