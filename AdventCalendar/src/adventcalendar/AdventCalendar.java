@@ -16,6 +16,7 @@ public class AdventCalendar {
     private int ancho = 4;
     private int alto = 6;
     private int[][] matriz = new int[alto][ancho];
+    private int eaten = 1;
 
     /**
      * Obtiene el ancho de la matriz.
@@ -72,6 +73,24 @@ public class AdventCalendar {
     }
 
     /**
+     * Obtiene la posicion que se va a comer
+     *
+     * @return
+     */
+    public int getEaten() {
+        return eaten;
+    }
+
+    /**
+     * Establece la cantidad siguiente posicion para comer
+     *
+     * @param eaten
+     */
+    public void setEaten(int eaten) {
+        this.eaten = eaten;
+    }
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -79,9 +98,16 @@ public class AdventCalendar {
         AdventCalendar calendario1 = new AdventCalendar();
 
         calendario1.fill();
-        calendario1.show();
+        for (int a = 0; a < 10; a++) {
+            calendario1.eat();
+            calendario1.show();
+        }
+        
     }
 
+    /**
+     * Metodo para mostrar la "matriz"
+     */
     public void show() {
         for (int i = 0; i < alto; i++) {
             System.out.println();
@@ -89,6 +115,7 @@ public class AdventCalendar {
                 System.out.print(matriz[i][j] + "  ");
             }
         }
+        System.out.println();
     }
 
     /**
@@ -110,25 +137,35 @@ public class AdventCalendar {
     }
 
     /**
-     * 
+     * Rellena o array "matriz" con numeros del 1 al 'alto' por 'ancho'
      */
     public void fill() {
         for (int i = 0; i < alto; i++) {
             for (int j = 0; j < ancho; j++) {
                 int value;
                 do {
-                    value = new java.util.Random().nextInt(24) + 1;
+                    value = new java.util.Random().nextInt(alto * ancho) + 1;
                 } while (contains(value));
 
                 matriz[i][j] = value;
-
             }
         }
 
     }
+
+    /**
+     *
+     */
     public void eat() {
-        for(int i=1; i<=(alto*ancho);i++){
-            
+
+        for (int i = 0; i < alto; i++) {
+            for (int j = 0; j < ancho; j++) {
+                if (matriz[i][j] == eaten) {
+                    matriz[i][j] = 0;
+                    eaten++;
+                    return;   
+                }   
+            }
         }
     }
 

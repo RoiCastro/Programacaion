@@ -84,8 +84,11 @@ public class Statistics {
     private void lengthArray() {
         Scanner scan = new Scanner(System.in);
         do {
-            System.out.println("Introduce un número impar para la longitud del arreglo.");
+            System.out.println("Introduce la cantidad de números para la mediana.");
             arrayLength = scan.nextInt();
+            if(arrayLength % 2 == 0){
+                System.out.println("Debe ser impar");
+            }
         } while (arrayLength % 2 == 0);
 
         median = new int[arrayLength];
