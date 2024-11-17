@@ -5,7 +5,6 @@
 package adventcalendar;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  *
@@ -13,46 +12,10 @@ import java.util.Scanner;
  */
 public class AdventCalendar {
 
-    private int ancho = 4;
-    private int alto = 6;
-    private int[][] matriz = new int[alto][ancho];
+    private final int COLUMNS = 4;
+    private final int ROWS  = 6;
+    private int[][] matriz = new int[ROWS ][COLUMNS];
     private int eaten = 1;
-
-    /**
-     * Obtiene el ancho de la matriz.
-     *
-     * @return el ancho de la matriz
-     */
-    public int getAncho() {
-        return ancho;
-    }
-
-    /**
-     * Establece el ancho de la matriz.
-     *
-     * @param ancho el ancho a establecer para la matriz
-     */
-    public void setAncho(int ancho) {
-        this.ancho = ancho;
-    }
-
-    /**
-     * Obtiene el alto de la matriz.
-     *
-     * @return el alto de la matriz
-     */
-    public int getAlto() {
-        return alto;
-    }
-
-    /**
-     * Establece el alto de la matriz.
-     *
-     * @param alto el alto a establecer para la matriz
-     */
-    public void setAlto(int alto) {
-        this.alto = alto;
-    }
 
     /**
      * Obtiene la matriz.
@@ -98,20 +61,20 @@ public class AdventCalendar {
         AdventCalendar calendario1 = new AdventCalendar();
 
         calendario1.fill();
-        for (int a = 0; a < 10; a++) {
+        for (int a = 0; a < 24; a++) {
             calendario1.eat();
             calendario1.show();
+            calendario1.christmasIsHere();
         }
-        
     }
 
     /**
      * Metodo para mostrar la "matriz"
      */
     public void show() {
-        for (int i = 0; i < alto; i++) {
+        for (int i = 0; i < ROWS ; i++) {
             System.out.println();
-            for (int j = 0; j < ancho; j++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 System.out.print(matriz[i][j] + "  ");
             }
         }
@@ -126,8 +89,8 @@ public class AdventCalendar {
      * contrario
      */
     private boolean contains(int value) {
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
+        for (int i = 0; i < ROWS ; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 if (matriz[i][j] == value) {
                     return true;
                 }
@@ -140,11 +103,11 @@ public class AdventCalendar {
      * Rellena o array "matriz" con numeros del 1 al 'alto' por 'ancho'
      */
     public void fill() {
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
+        for (int i = 0; i < ROWS ; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 int value;
                 do {
-                    value = new java.util.Random().nextInt(alto * ancho) + 1;
+                    value = new java.util.Random().nextInt(ROWS  * COLUMNS) + 1;
                 } while (contains(value));
 
                 matriz[i][j] = value;
@@ -153,20 +116,47 @@ public class AdventCalendar {
 
     }
 
-    /**
-     *
-     */
+/**
+ * Este método busca el valor actual de `eaten` dentro de la matriz y lo sustituye por 0.
+ * Una vez encuentra y reemplaza dicho valor, incrementa `eaten` para marcar
+ * el siguiente número que se debe "comer".
+ * 
+ * El método termina en cuanto encuentra el valor y lo reemplaza, por lo que
+ * solo se "come" un número por cada llamada a este método.
+ */
     public void eat() {
 
-        for (int i = 0; i < alto; i++) {
-            for (int j = 0; j < ancho; j++) {
+        for (int i = 0; i < ROWS ; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 if (matriz[i][j] == eaten) {
                     matriz[i][j] = 0;
                     eaten++;
-                    return;   
-                }   
+                    return;
+                }
             }
         }
     }
 
+    /**
+     * Comprueba si todos los valores estan en '0' y si es asi manda un mensaje
+     * por pantalla y si no no muestra nada
+     *
+     * @return true o false si todos los valores de la matriz del calendario
+     * estan a '0'
+     */
+    public boolean christmasIsHere() {
+        int contador = 0;
+        for (int i = 0; i < ROWS ; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                if (matriz[i][j] == 0) {
+                    contador++;
+                }
+            }
+        }
+        if (contador == (ROWS*COLUMNS)) {
+            System.out.println("La naviadad ya esta aqui");
+            return true;
+        }
+        return false;
+    }
 }
