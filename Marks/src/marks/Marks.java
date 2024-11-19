@@ -4,6 +4,7 @@
  */
 package marks;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,22 +14,8 @@ import java.util.Scanner;
 public class Marks {
 
     private int cantidadAlumnos = 10;
-    private int[] notes = new int[cantidadAlumnos];
-
-    /**
-     * Metodo para introducir las notas en todos los alumnos la primera vez
-     */
-    private void ponerNotas() {
-        Scanner scanner = new Scanner(System.in);
-
-        for (int i = 0; i < cantidadAlumnos; i++) {
-            System.out.println("Escribe la nota del alumuno " + i);
-            notes[i] = scanner.nextInt();
-            System.out.println();
-        }
-
-    }
-
+    private ArrayList<Integer> notes = new ArrayList<>();
+    
     /**
      * Obtiens la cantidad de alumnos de la clase Marks
      *
@@ -46,22 +33,22 @@ public class Marks {
     public void setCantidadAlumnos(int cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
-
     /**
      * Obtines la nota del alumno 
      *
      * @return
      */
-    public int[] getNotes() {
+    public ArrayList<Integer> getNotes() {
         return notes;
     }
+
 
     /**
      * Colocas la nota al alumno 
      *
      * @param notes
      */
-    public void setNotes(int[] notes) {
+    public void setNotes(ArrayList<Integer> notes) { 
         this.notes = notes;
     }
 
@@ -86,8 +73,27 @@ public class Marks {
         for (int note : notes) {
             Sum += note;
         }
-        media = Sum / notes.length;
+        media = Sum / notes.size();
+        
+        
+        
+        
+        
         return media;
     }
 
+     /**
+     * Metodo para introducir las notas en todos los alumnos la primera vez
+     */
+    public void ponerNotas() {
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < cantidadAlumnos; i++) {
+            System.out.println("Escribe la nota del alumuno " + i);
+            notes.add(scanner.nextInt());
+            //notes[i] = scanner.nextInt();
+            System.out.println();
+        }
+
+    }
 }
