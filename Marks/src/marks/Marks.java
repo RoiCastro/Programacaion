@@ -15,7 +15,7 @@ public class Marks {
 
     private int cantidadAlumnos = 10;
     private ArrayList<Integer> notes = new ArrayList<>();
-    
+
     /**
      * Obtiens la cantidad de alumnos de la clase Marks
      *
@@ -26,15 +26,16 @@ public class Marks {
     }
 
     /**
-     * Pones la cantidad de alumnos 
+     * Pones la cantidad de alumnos
      *
      * @param cantidadAlumnos
      */
     public void setCantidadAlumnos(int cantidadAlumnos) {
         this.cantidadAlumnos = cantidadAlumnos;
     }
+
     /**
-     * Obtines la nota del alumno 
+     * Obtines la nota del alumno
      *
      * @return
      */
@@ -42,13 +43,12 @@ public class Marks {
         return notes;
     }
 
-
     /**
-     * Colocas la nota al alumno 
+     * Colocas la nota al alumno
      *
      * @param notes
      */
-    public void setNotes(ArrayList<Integer> notes) { 
+    public void setNotes(ArrayList<Integer> notes) {
         this.notes = notes;
     }
 
@@ -63,26 +63,22 @@ public class Marks {
     }
 
     /**
-     * Obtines la media de todos los alumnos
+     * Obtines la media de todos los alumnos usando un iterador.
      *
      * @return
      */
     public double getAverage() {
-        double media;
-        double Sum = 0;
-        for (int note : notes) {
-            Sum += note;
+        double sum = 0;
+        java.util.Iterator<Integer> iterator = notes.iterator(); // Crear o iterador
+
+        while (iterator.hasNext()) { // Percorrer a lista usando o iterador
+            sum += iterator.next();
         }
-        media = Sum / notes.size();
-        
-        
-        
-        
-        
-        return media;
+
+        return notes.isEmpty() ? 0 : sum / notes.size(); // Previr división por 0
     }
 
-     /**
+    /**
      * Metodo para introducir las notas en todos los alumnos la primera vez
      */
     public void ponerNotas() {
