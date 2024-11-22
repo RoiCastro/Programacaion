@@ -4,6 +4,8 @@
  */
 package database;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author roi.castrocalvar
@@ -17,7 +19,8 @@ public class DataBase {
         // TODO code application logic here
     }
     public void addClient(){
-        
+        ArrayList grupo = new ArrayList(); 
+         
     }
     public void showClients(){
         
