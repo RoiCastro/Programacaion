@@ -13,14 +13,14 @@ import java.util.Scanner;
  */
 public class DataBase {
 
-    private ArrayList<Client> dataBase;
+    private ArrayList<Client> dataBase = new ArrayList();
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DataBase paco = new DataBase();
+        DataBase dataBase = new DataBase();
         Scanner scan = new Scanner(System.in);
         int option;
         do {
@@ -34,13 +34,28 @@ public class DataBase {
             System.out.println("Elije una opcion");
 
             option = scan.nextInt();
+            String paco = scan.nextLine();
+
+            switch (option) {
+                case 1 ->
+                    dataBase.addClient();
+                case 2 ->
+                    dataBase.showClients();
+                case 3 ->
+                    dataBase.removeClient(scan.nextLine());
+                case 4 ->
+                    System.out.println(dataBase.numClients());
+                case 5 ->
+                    System.out.println("Chao que tenga un buen dia");
+                default ->
+                    System.out.println("Introduce un numero valido");
+            }
+
         } while (option != 5);
 
     }
 
     public void addClient() {
-
-        dataBase = new ArrayList();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Escribe el nif del cliente");
@@ -51,24 +66,34 @@ public class DataBase {
         String surname = scanner.nextLine();
         Client Client = new Client(nif, name, surname);
         dataBase.add(Client);
+        
     }
 
     public void showClients() {
         for (int i = 0; i < dataBase.size(); i++) {
-            ;
             System.out.println(dataBase.get(i).getNif());
-            
         }
-
     }
 
     public void removeClient(String nif) {
 
+        Scanner scanner = new Scanner(System.in);
+        String nifToRemove = scanner.nextLine();
+
+        for (int i = 0; i < dataBase.size(); i++) {
+
+            if (nifToRemove == dataBase.get(i).getNif()) {
+
+            }
+        }
+
     }
 
     public int numClients() {
-
-        return 0;
+        if (dataBase.isEmpty()) {
+            return -1;
+        }
+        return dataBase.size();
 
     }
 }
