@@ -19,10 +19,11 @@ public class DataBase {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
         DataBase dataBase = new DataBase();
         Scanner scan = new Scanner(System.in);
         int option;
+        
         do {
             System.out.println("Menu");
             System.out.println("Opciones");
@@ -37,24 +38,34 @@ public class DataBase {
             String paco = scan.nextLine();
 
             switch (option) {
-                case 1 ->
+                case 1:
                     dataBase.addClient();
-                case 2 ->
+                    break;
+                case 2:
                     dataBase.showClients();
-                case 3 ->
+                    break;
+                case 3:
+                    System.out.println("Escribe el nif del cliente a eliminar");
                     dataBase.removeClient(scan.nextLine());
-                case 4 ->
+                    break;
+                case 4:
                     System.out.println(dataBase.numClients());
-                case 5 ->
+                    break;
+                case 5:
                     System.out.println("Chao que tenga un buen dia");
-                default ->
+                    break;
+                default:
                     System.out.println("Introduce un numero valido");
+                    break;
             }
 
         } while (option != 5);
 
     }
 
+    /**
+     * Añade clientes al arraylist 'dataBase'
+     */
     public void addClient() {
 
         Scanner scanner = new Scanner(System.in);
@@ -66,29 +77,41 @@ public class DataBase {
         String surname = scanner.nextLine();
         Client Client = new Client(nif, name, surname);
         dataBase.add(Client);
-        
+
     }
 
+    /**
+     * Enseña los clientes de 'dataBase'
+     */
     public void showClients() {
         for (int i = 0; i < dataBase.size(); i++) {
-            System.out.println(dataBase.get(i).getNif());
+            System.out.println(dataBase.get(i).getNif()+"  "+dataBase.get(i).getName());
+            
         }
     }
 
+    /**
+     * Elimina un cliente de 'dataBase' y si no lo encuentra lo dice
+     * @param nif para saber que cliente eliminar
+     */
     public void removeClient(String nif) {
-
-        Scanner scanner = new Scanner(System.in);
-        String nifToRemove = scanner.nextLine();
 
         for (int i = 0; i < dataBase.size(); i++) {
 
-            if (nifToRemove == dataBase.get(i).getNif()) {
-
+            if (nif.equals(dataBase.get(i).getNif())) {
+                dataBase.remove(i);
+                 System.out.println("Cliente eliminado");
+                return;
             }
         }
+        System.out.println("No se encontro el cliente.");
 
     }
 
+    /**
+     * Devulve el numero de clientes que se encuentra en 'dataBase'
+     * @return devulve el numero sino hay nada -1
+     */
     public int numClients() {
         if (dataBase.isEmpty()) {
             return -1;
