@@ -16,6 +16,11 @@ public class SortedArray {
      * Arreglo de enteros que se manipulará en la clase.
      */
     private int[] array = new int[]{14, 165, 2, 18, 19, 16};
+    private boolean sorted = false;
+
+    public boolean isSorted() {
+        return sorted;
+    }
 
     /**
      * Obtiene el arreglo de enteros actual.
@@ -46,6 +51,7 @@ public class SortedArray {
         SortedArray myArray = new SortedArray();
         myArray.sort();
         myArray.show();
+        myArray.contains(16);
     }
 
     /**
@@ -83,5 +89,22 @@ public class SortedArray {
         for (int myArray:array){
             System.out.print(myArray + " ");
         }
+        sorted=true;
+    }
+    
+/**
+     * Comproba se o array "matriz" contén un determinado valor
+     *
+     * @param value Valor que se quere comprobar se está ou non en "matriz"
+     * @return true se o valor recibido está en "matriz", false en caso
+     * contrario
+     */
+    private boolean contains(int number) {
+        for (int i = 0; i < array.length ; i++) {
+                if (array[i] == number) {
+                    return true;            
+            }
+        }
+        return false;
     }
 }

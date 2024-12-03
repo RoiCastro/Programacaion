@@ -104,4 +104,6 @@ public class Statistics {
             median[i] = scan.nextInt();
         }
     }
+    
+
 }

@@ -102,17 +102,7 @@ public class Tarot {
             }
             number = sum;
         }
-        return number;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        return number;  
         }else{
             System.out.println("Error algun dato no valido");
         }
