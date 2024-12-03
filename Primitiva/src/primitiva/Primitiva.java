@@ -4,6 +4,8 @@
  */
 package primitiva;
 
+import java.util.Scanner;
+
 /**
  *
  * @author roi.castrocalvar
@@ -22,6 +24,7 @@ public class Primitiva {
     private int winnerComplement;
     private int refundNumber;
 
+    int[] numbers= new int[]{0,0,0,0,0,0};
     /**
      * Obtiene el dia del la primitiva
      *
@@ -150,7 +153,12 @@ public class Primitiva {
     public static void main(String[] args) {
         // TODO code application logic here
         Primitiva primitiva1 = new Primitiva(11, 12, 2005);
+        
         primitiva1.makeDraw();
+        PrimitivaTicket ticket = new PrimitivaTicket(numbers,0);
+        primitiva1.generateTicket();
+
+        primitiva1.showPrize(ticket);
         primitiva1.showResult();
     }
 
@@ -205,6 +213,36 @@ public class Primitiva {
             }
         }
         return false;
+    }
+
+    private void generateTicket() {
+        int value = 0;
+        for (int i = 0; i < TOTAL_NUMBERS; i++) {
+            System.out.println("Escribe el " + (i + 1) + "º numero de la primitiva");    
+            do {
+                Scanner scan = new Scanner(System.in);
+                value = scan.nextInt();
+                if (value > MAX_NUMBER || value <= 0) {
+                    System.out.println("Numero no valido, escribe un numero entre 1 a 49");
+                }
+            } while (value > MAX_NUMBER || value <= 0);
+            numbers[i]=value;
+
+        }
+        System.out.println("Escribe el  numero de reintegro");
+            do {
+                Scanner scan = new Scanner(System.in);
+                value = scan.nextInt();
+                if (value > MAX_NUMBER || value <= 0) {
+                    System.out.println("Numero no valido, escribe un numero entre 1 a 49");
+                }
+            } while (value > MAX_NUMBER || value <= 0);
+            
+        PrimitivaTicket ticket = new PrimitivaTicket(numbers, value);
+    }
+
+    private void showPrize(PrimitivaTicket ticket) {
+        
     }
 
 }
