@@ -52,30 +52,23 @@ public class Statistics {
      * Calcula la mediana de un arreglo de números.
      * La mediana es el valor central cuando el arreglo está ordenado.
      * 
-     * @return el valor de la mediana si existe; 0 si no se puede calcular
+     * @return el valor de la mediana si existe.
      */
     public int median() {
-        for (int med : median) {
-            int mayores = 0;
-            int menores = 0;
+ for (int i = 0; i < arrayLength - 1; i++)
+    {
+        int index = i;
+        for (int j = i + 1; j < arrayLength; j++)
+            if (median[j] < median[index]) //Finds smallest number
+                index = j;
 
-            for (int i = 0; i < median.length; i++) {
-                if (med != median[i]) {
-                    if (med > median[i]) {
-                        menores++;
-                    }
-                    if (med < median[i]) {
-                        mayores++;
-                    }
-                }
-            }
-
-            if (mayores == menores) {
-                return med;
-            }
-        }
-        return 0;
+        int smallerNumber = median[index];  //Swap
+        median[index] = median[i];
+        median[i] = smallerNumber;
     }
+        return median[arrayLength/2];
+    
+}
 
     /**
      * Solicita al usuario ingresar la longitud del arreglo, asegurándose
@@ -104,6 +97,4 @@ public class Statistics {
             median[i] = scan.nextInt();
         }
     }
-    
-
 }
