@@ -22,58 +22,57 @@ public class Substitute extends Teacher {
      */
     protected Date initDate;
 
-/**
- * Retorna la distancia de desplazamiento.
- * 
- * @return el valor de displacement
- */
-public double getDisplacement() {
-    return displacement;
-}
+    /**
+     * Retorna la distancia de desplazamiento.
+     *
+     * @return el valor de displacement
+     */
+    public double getDisplacement() {
+        return displacement;
+    }
 
-/**
- * Establece la distancia de desplazamiento.
- * 
- * @param displacement el nuevo valor de desplazamiento
- */
-public void setDisplacement(double displacement) {
-    this.displacement = displacement;
-}
+    /**
+     * Establece la distancia de desplazamiento.
+     *
+     * @param displacement el nuevo valor de desplazamiento
+     */
+    public void setDisplacement(double displacement) {
+        this.displacement = displacement;
+    }
 
-/**
- * Obtiene la fecha de inicio.
- * 
- * @return el valor de initDate
- */
-public Date getInitDate() {
-    return initDate;
-}
+    /**
+     * Obtiene la fecha de inicio.
+     *
+     * @return el valor de initDate
+     */
+    public Date getInitDate() {
+        return initDate;
+    }
 
-/**
- * Asigna la fecha de inicio.
- * 
- * @param initDate la nueva fecha de inicio
- */
-public void setInitDate(Date initDate) {
-    this.initDate = initDate;
-}
+    /**
+     * Asigna la fecha de inicio.
+     *
+     * @param initDate la nueva fecha de inicio
+     */
+    public void setInitDate(Date initDate) {
+        this.initDate = initDate;
+    }
 
-/**
- * Constructor de la clase Substitute.
- * 
- * @param displacement distancia de desplazamiento
- * @param initDate     fecha de inicio
- * @param name         nombre
- * @param surname      apellido
- * @param addres       dirección
- * @param baseSalary   salario base
- */
-public Substitute(double displacement, Date initDate, String name, String surname, String addres, double baseSalary) {
-    super(name, surname, addres, baseSalary);
-    this.displacement = displacement;
-    this.initDate = initDate;
-}
-
+    /**
+     * Constructor de la clase Substitute.
+     *
+     * @param displacement distancia de desplazamiento
+     * @param initDate fecha de inicio
+     * @param name nombre
+     * @param surname apellido
+     * @param addres dirección
+     * @param baseSalary salario base
+     */
+    public Substitute(double displacement, Date initDate, String name, String surname, String addres, double baseSalary) {
+        super(name, surname, addres, baseSalary);
+        this.displacement = displacement;
+        this.initDate = initDate;
+    }
 
     /**
      * Genera la nómina del profesor interino.
@@ -84,10 +83,10 @@ public Substitute(double displacement, Date initDate, String name, String surnam
     }
 
     /**
-     * Método que representa la acción de dar clase del profesor interino.
+     * Método que representa la acción de dar clase del profesor sustituto.
      */
     @Override
     public void teach() {
-        System.out.println("Dou unha clase de programación en Java.");
+        System.out.println("Substitúo unha clase de programación en Java.");
     }
 }

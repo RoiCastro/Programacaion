@@ -30,6 +30,15 @@ public class Interim extends Teacher {
         this.interimComplement = interimComplement;
     }
 
+    /**
+     * Constructor de la clase Interim.
+     *
+     * @param interimComplement Valor complementario para el interino.
+     * @param name nombre
+     * @param surname apellido
+     * @param addres dirección
+     * @param baseSalary salario base
+     */
     public Interim(double interimComplement, String name, String surname, String addres, double baseSalary) {
         super(name, surname, addres, baseSalary);
         this.interimComplement = interimComplement;

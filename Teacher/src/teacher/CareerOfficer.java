@@ -77,6 +77,17 @@ public class CareerOfficer extends Teacher {
         this.oppositionPlace = oppositionPlace;
     }
 
+    /**
+     * Constructor de la clase CareerOfficer.
+     *
+     * @param officerComplement Valor complementario del profesor.
+     * @param opositionYear Año en el que se realizó la oposición.
+     * @param oppositionPlace Lugar donde se llevó a cabo la oposición.
+     * @param name nombre
+     * @param surname apellido
+     * @param addres dirección
+     * @param baseSalary salario base
+     */
     public CareerOfficer(double officerComplement, int opositionYear, String oppositionPlace, String name, String surname, String addres, double baseSalary) {
         super(name, surname, addres, baseSalary);
         this.officerComplement = officerComplement;
