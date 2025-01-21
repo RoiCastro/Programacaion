@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package xerarquia;
+package xerarquia.persona;
+
+import xerarquia.Speaker;
 
 /**
  *
  * @author roi.castrocalvar
  */
-public class Student extends Person {
+public class Student extends Person implements Speaker{
     
     protected String career;
     protected String course;
@@ -33,6 +35,11 @@ public class Student extends Person {
         super(name, age);
         this.career = career;
         this.course = course;
+    }
+
+    @Override
+    public void speack() {
+
     }
     
 }

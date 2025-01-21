@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package xerarquia;
+package xerarquia.aparato;
+import xerarquia.Speaker;
 
 /**
  *
  * @author roi.castrocalvar
  */
-public class Radio extends Device {
+public class Radio extends Device implements Speaker{
 
     protected boolean casette;
     protected int power;
@@ -33,6 +34,11 @@ public class Radio extends Device {
         super(consumption, price);
         this.casette = casette;
         this.power = power;
+    }
+
+    @Override
+    public void speack() {
+        System.out.println("xerarquia.aparato.Radio.speack()");
     }
 
 }
