@@ -10,8 +10,8 @@ import xerarquia.Speaker;
  *
  * @author roi.castrocalvar
  */
-public class Student extends Person implements Speaker{
-    
+public class Student extends Person implements Speaker {
+
     protected String career;
     protected String course;
 
@@ -39,7 +39,9 @@ public class Student extends Person implements Speaker{
 
     @Override
     public void speack() {
-
+        System.out.println("Ola, son unha " + getClass().getSimpleName() + " e sei falar.");
+        System.out.println("Name: " + name + " Idade: " + age);
+        System.out.println("Carreira: " + career + " Curso: " + course);
     }
-    
+
 }

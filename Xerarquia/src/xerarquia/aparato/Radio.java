@@ -38,7 +38,9 @@ public class Radio extends Device implements Speaker{
 
     @Override
     public void speack() {
-        System.out.println("xerarquia.aparato.Radio.speack()");
+        System.out.println("Ola, son unha "+getClass().getSimpleName() +" e sei falar.");
+        System.out.println("Consumo: "+getConsumption()+" Prezo: "+getPrice());
+        System.out.println("Casette: "+casette+" Potencia: "+power);
     }
 
 }

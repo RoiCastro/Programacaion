@@ -10,19 +10,21 @@ package xerarquia.ave;
  */
 public class Canary extends Bird {
 
-    protected boolean sing;
+    protected String sing;
 
-    public boolean isSing() {
+    public String getSing() {
         return sing;
     }
 
-    public void setSing(boolean sing) {
+    public void setSing(String sing) {
         this.sing = sing;
     }
 
-    public Canary(boolean sing, int age, char sex) {
+    public Canary(String sing, int age, char sex) {
         super(age, sex);
         this.sing = sing;
     }
+
+
 
 }

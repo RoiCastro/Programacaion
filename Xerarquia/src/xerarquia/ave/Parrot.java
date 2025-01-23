@@ -4,15 +4,16 @@
  */
 package xerarquia.ave;
 
-import java.awt.Color;
+import xerarquia.Speaker;
 
 /**
  *
  * @author roi.castrocalvar
  */
-public class Parrot extends Bird {
+public class Parrot extends Bird implements Speaker {
+
     protected String region;
-    protected Color color;
+    protected String color;
 
     public String getRegion() {
         return region;
@@ -22,18 +23,26 @@ public class Parrot extends Bird {
         this.region = region;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public Parrot(String region, Color color, int age, char sex) {
+    public Parrot(String region, String color, int age, char sex) {
         super(age, sex);
         this.region = region;
         this.color = color;
     }
-    
+
+    @Override
+    public void speack() {
+        System.out.println("Ola, son unha " + getClass().getSimpleName() + " e sei falar.");
+        System.out.println("Sexo: " + sex + " Idade: " + age);
+        System.out.println("Rexion: " + region + " Cor: " + color);
+
+    }
+
 }

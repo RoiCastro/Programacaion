@@ -38,9 +38,9 @@ public class TV extends Device implements Speaker{
 
     @Override
     public void speack() {
-        System.out.println("Ola, son unha "+getClass() +" e sei falar.");
+        System.out.println("Ola, son unha "+getClass().getSimpleName() +" e sei falar.");
         System.out.println("Consumo: "+getConsumption()+" Prezo: "+getPrice());
-        System.out.println();
+        System.out.println("Teletexto: "+teletext+" Pulgadas: "+inches);
     }
 
 }

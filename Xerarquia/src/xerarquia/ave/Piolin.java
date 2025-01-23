@@ -4,11 +4,13 @@
  */
 package xerarquia.ave;
 
+import xerarquia.Speaker;
+
 /**
  *
  * @author roi.castrocalvar
  */
-public class Piolin extends Canary {
+public class Piolin extends Canary implements Speaker {
 
     protected int numberOfFilms;
 
@@ -20,9 +22,17 @@ public class Piolin extends Canary {
         this.numberOfFilms = numberOfFilms;
     }
 
-    public Piolin(int numberOfFilms, boolean sing, int age, char sex) {
+    public Piolin(int numberOfFilms, String sing, int age, char sex) {
         super(sing, age, sex);
         this.numberOfFilms = numberOfFilms;
+    }
+
+    @Override
+    public void speack() {
+
+        System.out.println("Ola, son unha " + getClass().getSimpleName() + " e sei falar.");
+        System.out.println("Sexo: " + sex + " Idade: " + age);
+        System.out.println("Canta: " + sing + " Peliculas: " + numberOfFilms);
     }
 
 }

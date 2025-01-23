@@ -4,10 +4,12 @@
  */
 package sortedarray;
 
+import com.sun.source.tree.CatchTree;
+
 /**
  * Clase que implementa un arreglo de enteros y proporciona métodos para
  * ordenarlo y mostrar su contenido.
- * 
+ *
  * @author roi.castrocalvar
  */
 public class SortedArray {
@@ -41,7 +43,7 @@ public class SortedArray {
     }
 
     /**
-     * Método principal que ejecuta el programa. Crea una instancia de 
+     * Método principal que ejecuta el programa. Crea una instancia de
      * {@code SortedArray}, ordena el arreglo y muestra su contenido.
      *
      * @param args Argumentos de la línea de comandos (no se utilizan).
@@ -51,12 +53,12 @@ public class SortedArray {
         SortedArray myArray = new SortedArray();
         myArray.sort();
         myArray.show();
-        myArray.contains(16);
+        System.out.println("Tiene(16) : " + myArray.contains(16));
     }
 
     /**
-     * Método que ordena el arreglo en orden ascendente utilizando el
-     * algoritmo de ordenamiento de burbuja.
+     * Método que ordena el arreglo en orden ascendente utilizando el algoritmo
+     * de ordenamiento de burbuja.
      *
      * @return El arreglo ordenado.
      */
@@ -66,10 +68,10 @@ public class SortedArray {
         // Bucle que recorre el arreglo desde el final hasta el principio
         for (int i = array.length - 1; i > 0 && swapped; i--) {
             swapped = false; // Reiniciar el estado de intercambio
-            
+
             // Bucle interno para comparar y ordenar elementos adyacentes
             for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) { 
+                if (array[j] > array[j + 1]) {
                     // Intercambiar los elementos si están fuera de orden
                     int temp = array[j];
                     array[j] = array[j + 1];
@@ -78,21 +80,32 @@ public class SortedArray {
                 }
             }
         }
-        return array; 
+        return array;
     }
 
     /**
-     * Método que muestra los elementos del arreglo en una sola línea, 
-     * separados por espacios.
+     * Método que muestra los elementos del arreglo en una sola línea, separados
+     * por espacios.
      */
     public void show() {
-        for (int myArray:array){
+
+        try {
+            for (int i = 0; i <= array.length; i++) { // Intentar acceder fuera del límite
+                System.out.print(array[i] + " ");
+            }
+        } catch (ArrayIndexOutOfBoundsException e) { // captura la excepcion
+            System.out.println("\nError: Intentaste acceder a una posición fuera de los límites del array.");// "/n" sirve para hacer un salto de linea
+        }
+        /*
+        for (int myArray : array) {
             System.out.print(myArray + " ");
         }
-        sorted=true;
+        sorted = true;
+         */
+        System.out.println();
     }
-    
-/**
+
+    /**
      * Comproba se o array "matriz" contén un determinado valor
      *
      * @param value Valor que se quere comprobar se está ou non en "matriz"
@@ -100,9 +113,9 @@ public class SortedArray {
      * contrario
      */
     private boolean contains(int number) {
-        for (int i = 0; i < array.length ; i++) {
-                if (array[i] == number) {
-                    return true;            
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == number) {
+                return true;
             }
         }
         return false;
