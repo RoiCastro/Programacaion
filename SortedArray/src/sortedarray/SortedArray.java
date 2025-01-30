@@ -4,8 +4,6 @@
  */
 package sortedarray;
 
-import com.sun.source.tree.CatchTree;
-
 /**
  * Clase que implementa un arreglo de enteros y proporciona métodos para
  * ordenarlo y mostrar su contenido.
@@ -19,10 +17,6 @@ public class SortedArray {
      */
     private int[] array = new int[]{14, 165, 2, 18, 19, 16};
     private boolean sorted = false;
-
-    public boolean isSorted() {
-        return sorted;
-    }
 
     /**
      * Obtiene el arreglo de enteros actual.
@@ -40,6 +34,24 @@ public class SortedArray {
      */
     public void setArray(int[] array) {
         this.array = array;
+    }
+
+    /**
+     * Devulve el valor de la Sorted
+     *
+     * @return
+     */
+    public boolean isSorted() {
+        return sorted;
+    }
+
+    /**
+     * obtine el valor de la Sorted
+     *
+     * @param sorted
+     */
+    public void setSorted(boolean sorted) {
+        this.sorted = sorted;
     }
 
     /**
