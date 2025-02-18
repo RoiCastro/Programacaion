@@ -1,5 +1,7 @@
 
+import java.awt.Color;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -67,8 +69,9 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelUnidades = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabelPrecio = new javax.swing.JLabel();
+        jLabelUnidades = new javax.swing.JLabel();
         jLabelTotal = new javax.swing.JLabel();
         jLabelResultado = new javax.swing.JLabel();
         jTextFieldUnidades = new javax.swing.JTextField();
@@ -78,15 +81,23 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelUnidades.setText("Unidades:");
-
         jLabelPrecio.setText("Precio:");
+
+        jLabelUnidades.setText("Unidades:");
 
         jLabelTotal.setText("TOTAL:");
 
         jLabelResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButtonCalcular.setText("Calcular");
+        jButtonCalcular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCalcularMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCalcularMouseExited(evt);
+            }
+        });
         jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCalcularActionPerformed(evt);
@@ -100,53 +111,68 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 359, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(23, 23, 23)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelUnidades)
+                        .addComponent(jLabelPrecio)
+                        .addComponent(jLabelTotal)
+                        .addComponent(jButtonCalcular))
+                    .addGap(48, 48, 48)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButtonConfiguracion)
+                        .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                        .addComponent(jTextFieldUnidades)
+                        .addComponent(jLabelResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap(36, Short.MAX_VALUE)))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelPrecio, jLabelTotal, jLabelUnidades});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelResultado, jTextFieldPrecio, jTextFieldUnidades});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelUnidades)
+                        .addComponent(jTextFieldUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(27, 27, 27)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPrecio)
+                        .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(63, 63, 63)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelTotal)
+                        .addComponent(jLabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonCalcular)
+                        .addComponent(jButtonConfiguracion))
+                    .addContainerGap()))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelResultado, jTextFieldPrecio, jTextFieldUnidades});
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelUnidades)
-                    .addComponent(jLabelPrecio)
-                    .addComponent(jLabelTotal)
-                    .addComponent(jButtonCalcular))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonConfiguracion)
-                    .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jTextFieldUnidades)
-                    .addComponent(jLabelResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelPrecio, jLabelTotal, jLabelUnidades});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelResultado, jTextFieldPrecio, jTextFieldUnidades});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUnidades)
-                    .addComponent(jTextFieldUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPrecio)
-                    .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTotal)
-                    .addComponent(jLabelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCalcular)
-                    .addComponent(jButtonConfiguracion))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelResultado, jTextFieldPrecio, jTextFieldUnidades});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,6 +182,10 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
         dialog.setIva(iva);
         dialog.setDescuento(descuento);
         dialog.setVisible(true);
+        if(dialog.isAceptChanges()){
+            iva =dialog.getIva();
+            descuento= dialog.getDescuento();
+        }
     }//GEN-LAST:event_jButtonConfiguracionActionPerformed
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
@@ -166,12 +196,20 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
             float des = neto * descuento / 100;
             float iva = neto * this.iva / 100;
             float res = neto + iva - des;
-            jLabelResultado.setText(String.valueOf(res));
+            jLabelResultado.setText(String.valueOf(Math.round(res)));
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Tiene que haber un numero ahí");
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
+
+    private void jButtonCalcularMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCalcularMouseEntered
+        jButtonCalcular.setBackground(Color.red);
+    }//GEN-LAST:event_jButtonCalcularMouseEntered
+
+    private void jButtonCalcularMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCalcularMouseExited
+        jButtonCalcular.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonCalcularMouseExited
 
     /**
      * @param args the command line arguments
@@ -215,6 +253,7 @@ public class CalculadoraPrezo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelResultado;
     private javax.swing.JLabel jLabelTotal;
     private javax.swing.JLabel jLabelUnidades;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldUnidades;
     // End of variables declaration//GEN-END:variables

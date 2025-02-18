@@ -1,30 +1,47 @@
 
+import com.sun.source.tree.ParenthesizedTree;
 import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-
 /**
  *
  * @author usuario
  */
 public class DialogConfiguration extends javax.swing.JDialog {
+
+    private boolean aceptChanges = false;
+
+    public boolean isAceptChanges() {
+        return aceptChanges;
+    }
     
-    public void setIva(int iva){
+
+    public int getIva() {
+        return Integer.parseInt((String) jTextFieldIva.getText());
+    }
+
+    public int getDescuento() {
+        return Integer.parseInt((String) jTextFieldDescuento.getText());
+    }
+
+    public void setIva(int iva) {
         jTextFieldIva.setText(Integer.toString(iva));
     }
-    public void setDescuento(int descuento){
+
+    public void setDescuento(int descuento) {
         jTextFieldDescuento.setText(Integer.toString(descuento));
     }
-    
+
     /**
      * Creates new form DialogConfiguration
      */
     public DialogConfiguration(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        CalculadoraPrezo calculadora = (CalculadoraPrezo) parent;
     }
 
     /**
@@ -60,12 +77,6 @@ public class DialogConfiguration extends javax.swing.JDialog {
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
-            }
-        });
-
-        jTextFieldIva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIvaActionPerformed(evt);
             }
         });
 
@@ -118,16 +129,14 @@ public class DialogConfiguration extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        
+        aceptChanges=true;
+        setVisible(false);
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    private void jTextFieldIvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIvaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIvaActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
