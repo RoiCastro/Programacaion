@@ -6,6 +6,7 @@ package ui;
 
 import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
+import memorygame.ArrayCardGenerator;
 import memorygame.Card;
 
 /**
@@ -14,18 +15,30 @@ import memorygame.Card;
  */
 public class MemoryGame extends javax.swing.JFrame {
 
-    public Card[][] cartas = new Card[4][4];
-    public JToggleButton[][] botones = new JToggleButton[4][4];
+    public Card[][] cartas;
+    public JToggleButton[][] botones = new JToggleButton[3][4];
     public Card selectedCard;
     public JToggleButton selectedButton;
     public int points;
-    
+
     /**
      * Creates new form MemoryGame
      */
     public MemoryGame() {
         initComponents();
-        botones[1][1].add(jToggleButton1);
+        //Botones guardados en el array
+        botones[0][0] = jToggleButton1;
+        botones[0][1] = jToggleButton2;
+        botones[0][2] = jToggleButton3;
+        botones[0][3] = jToggleButton4;
+        botones[1][0] = jToggleButton5;
+        botones[1][1] = jToggleButton6;
+        botones[1][2] = jToggleButton7;
+        botones[1][3] = jToggleButton8;
+        botones[2][0] = jToggleButton9;
+        botones[2][1] = jToggleButton10;
+        botones[2][2] = jToggleButton11;
+        botones[2][3] = jToggleButton12;
     }
 
     /**
@@ -159,7 +172,6 @@ public class MemoryGame extends javax.swing.JFrame {
         Menu.add(jLabelNivel);
 
         jComboBoxNilvel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sinxelo", "Medio", "Difícil" }));
-        jComboBoxNilvel.setSelectedIndex(1);
         jComboBoxNilvel.setToolTipText("");
         Menu.add(jComboBoxNilvel);
 
@@ -201,13 +213,28 @@ public class MemoryGame extends javax.swing.JFrame {
         clearUnselectedButtons();
     }//GEN-LAST:event_jButtonNovaPartidaActionPerformed
 
-    private void startNewGame(int nivel){
-        jLabelNivelDeJuego.setText("Estás xogando no nivel ");
+    private void startNewGame(int nivel) {
+        ArrayCardGenerator generatorCards = new ArrayCardGenerator();
+        switch (nivel) {
+            case 0:
+                jLabelNivelDeJuego.setText("Estás xogando no nivel Sinxelo");
+                generatorCards.generateCards(3,4);
+                break;
+            case 1:
+                jLabelNivelDeJuego.setText("Estás xogando no nivel Medio");
+                break;
+            case 2:
+                jLabelNivelDeJuego.setText("Estás xogando no nivel Difícil");
+                break;
+            default:
+                throw new AssertionError();
+        }
         
         
     }
+
     public void showGameStatus() {
-        jLabelPuntuacion.setText("- Xogando por "+points+" puntos");
+        jLabelPuntuacion.setText("- Xogando por " + points + " puntos");
     }
 
     public void clearUnselectedButtons() {
@@ -216,6 +243,7 @@ public class MemoryGame extends javax.swing.JFrame {
                 botone1.setText("");
             }
         }
+
     }
 
     public void checkGameOver() {

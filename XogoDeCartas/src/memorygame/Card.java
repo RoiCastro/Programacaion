@@ -10,8 +10,8 @@ package memorygame;
  */
 public  abstract  class Card {
     
-    public String text;
-    public Boolean hit = false;
+    protected String text;
+    protected boolean hit = false;
 
     public String getText() {
         return text;
@@ -21,18 +21,17 @@ public  abstract  class Card {
         this.text = text;
     }
 
-    public Boolean getHit() {
+    public boolean getHit() {
         return hit;
     }
 
-    public void setHit(Boolean hit) {
+    public void setHit(boolean hit) {
         this.hit = hit;
     }
 
     public Card(String text) {
         this.text = text;
     }
-
     
     public abstract boolean isEquals(Card carta);
 }

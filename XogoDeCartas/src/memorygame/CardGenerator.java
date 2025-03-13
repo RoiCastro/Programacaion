@@ -9,7 +9,6 @@ package memorygame;
  * @author roi.castrocalvar
  */
 public interface CardGenerator {
-
-
+    
     public Card[][] generateCards(int filas, int columnas) throws GenerateCardsException;
 }
