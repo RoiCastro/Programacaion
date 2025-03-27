@@ -15,9 +15,9 @@ import padel.model.Player;
  * @author roi.castrocalvar
  */
 public class PadelManagerDB {
-    public static HashMap<String, Player> players = new HashMap<>();
-    public static ArrayList<PadelCourt> courts;
-    private static ArrayList<Booking> bookings;
+    private static HashMap<String, Player> players = new HashMap<>();
+    private static ArrayList<PadelCourt> courts = new ArrayList<>();
+    private static ArrayList<Booking> bookings = new ArrayList<>();
 
     public static HashMap<String, Player> getPlayers() {
         return players;

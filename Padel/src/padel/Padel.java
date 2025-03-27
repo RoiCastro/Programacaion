@@ -20,6 +20,7 @@ public class Padel {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         // TODO code application logic here
         Player player1 = new Player("luisf", "abc", "Luis Fdez", 2.5, 25.90);

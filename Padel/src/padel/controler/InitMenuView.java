@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package padel.db;
+package padel.controler;
 
-import java.util.ArrayList;
-import padel.model.PadelCourt;
 
 /**
  *
  * @author roi.castrocalvar
  */
-public class PadelCourtDB {
+public class InitMenuView {
 
-    public ArrayList<PadelCourt> getAllCourts() {
-        return PadelManagerDB.getCourts();
+    public boolean showLoginMenu() {
+        
+        return false;
     }
+    
 }

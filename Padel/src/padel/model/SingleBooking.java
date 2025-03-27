@@ -62,7 +62,7 @@ public class SingleBooking extends Booking {
                 player[i] = "" + players[i].getId() + " (" + players[i].getScore() + ")";
             }
         }
-        return super.getDescription() + " Xogadores: " + player[0] + " " + player[1];
+        return super.getDescription() +"\n"+ "Xogadores: " + player[0] + " " + player[1];
     }
 
     public void addPlayer(Player player) {
