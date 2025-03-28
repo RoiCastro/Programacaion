@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/Padel.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/controler/InitMenuController.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/controler/InitMenuView.java</file>
             <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/model/Player.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/model/PadelCourt.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/model/Booking.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/model/SingleBooking.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/model/DoubleBooking.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/db/PadelManagerDB.java</file>
             <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/db/PlayerDB.java</file>
-            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/Padel/src/padel/db/PadelCourtDB.java</file>
         </group>
     </open-files>
 </project-private>

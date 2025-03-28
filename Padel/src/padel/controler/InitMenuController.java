@@ -18,19 +18,21 @@ public class InitMenuController {
     private InitMenuView view;
 
     public InitMenuController() {
-        view = new InitMenuView();
+        view = new InitMenuView(this);
     }
 
     public void initApp() {
         while (!view.showLoginMenu()) {
-
         }
+        System.out.println("Saindo da aplicacion.");
     }
 
     public void login(String id,String password) {
         Player player = PlayerDB.findByIdAndPassword(id, password);
-        if (player == null) {
+        if (player != null) {
             
+        }else{
+            view.showInvalidUser();
         }
     }
 
