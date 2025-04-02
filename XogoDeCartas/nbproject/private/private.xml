@@ -2,14 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< Updated upstream
         <group>
-            <file>file:/C:/Users/roica/Documents/DAW1/Programacaion/XogoDeCartas/src/memorygame/MathCard.java</file>
-            <file>file:/C:/Users/roica/Documents/DAW1/Programacaion/XogoDeCartas/src/memorygame/Card.java</file>
-            <file>file:/C:/Users/roica/Documents/DAW1/Programacaion/XogoDeCartas/src/ui/MemoryGame.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/XogoDeCartas/src/ui/MemoryGame.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/XogoDeCartas/src/memorygame/ArrayCardGenerator.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/XogoDeCartas/src/memorygame/MathCard.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/XogoDeCartas/src/memorygame/Card.java</file>
+            <file>file:/home/roi.castrocalvar/Roi%20Castro/Programacaion/XogoDeCartas/src/memorygame/GenerateCardsException.java</file>
         </group>
-=======
-        <group/>
->>>>>>> Stashed changes
     </open-files>
 </project-private>
