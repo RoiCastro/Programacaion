@@ -50,6 +50,10 @@ public abstract class Booking {
     public abstract boolean isCompleted();
     public abstract boolean containsPlayer(String id);
     public  String getDescription(){
+<<<<<<< Updated upstream
         return "Reserva pendente:"+"\n"+ "Data: " + new SimpleDateFormat("dd/MM/yyyy").format(date)+ " Hora: "+hour + "Pista: "+court.getNumber();
+=======
+        return "Reserva pendente:"+ "Data: " + new SimpleDateFormat("dd/MM/yyyy").format(date)+ " Hora: "+hour + "Pista: "+court.getNumber();
+>>>>>>> Stashed changes
     };
 }

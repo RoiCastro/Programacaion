@@ -16,8 +16,13 @@ import padel.model.Player;
  */
 public class PadelManagerDB {
     private static HashMap<String, Player> players = new HashMap<>();
+<<<<<<< Updated upstream
     private static ArrayList<PadelCourt> courts = new ArrayList<>();
     private static ArrayList<Booking> bookings = new ArrayList<>();
+=======
+    private static ArrayList<PadelCourt> courts;
+    private static ArrayList<Booking> bookings;
+>>>>>>> Stashed changes
 
     public static HashMap<String, Player> getPlayers() {
         return players;

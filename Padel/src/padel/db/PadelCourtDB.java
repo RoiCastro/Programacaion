@@ -5,7 +5,11 @@
 package padel.db;
 
 import java.util.ArrayList;
+<<<<<<< Updated upstream
 import padel.model.PadelCourt;
+=======
+import padel.db.PadelManagerDB;
+>>>>>>> Stashed changes
 
 /**
  *
@@ -13,7 +17,12 @@ import padel.model.PadelCourt;
  */
 public class PadelCourtDB {
 
+<<<<<<< Updated upstream
     public ArrayList<PadelCourt> getAllCourts() {
         return PadelManagerDB.getCourts();
+=======
+    public ArrayList<PadelManagerDB> getAllCourts() {
+        return getAllCourts();
+>>>>>>> Stashed changes
     }
 }

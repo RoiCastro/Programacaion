@@ -70,7 +70,11 @@ public class DoubleBooking extends Booking {
                 }
             }
         }
+<<<<<<< Updated upstream
         return super.getDescription() +"\n"+ "Xogadores: " +"Equipo 1:"+ player[0][0] + " " + player[0][1]+" Equipo 2:"+ player[1][0] + " " + player[1][1];
+=======
+        return super.getDescription() + " Xogadores: " +"Equipo 1:"+ player[0][0] + " " + player[0][1]+" Equipo 2:"+ player[1][0] + " " + player[1][1];
+>>>>>>> Stashed changes
     }
         public void addPlayer(Player player, int number) {
         for (int i = 0; i < teams[number].length; i++) {

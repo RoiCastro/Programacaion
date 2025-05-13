@@ -59,9 +59,16 @@
 /CalculadoraPrezo/build/
 /Padel/nbproject/private/
 /Padel/build/
+<<<<<<< Updated upstream
 /Hogwarts/nbproject/private/
 /Hogwarts/build/
 /MyFirstJDBC_APP/nbproject/private/
 /MyFirstJDBC_APP/build/
 /peliculasDb/nbproject/private/
 /peliculasDb/build/
+=======
+>>>>>>> Stashed changes
+/CifradoCesar/nbproject/private/
+/CifradoCesar/build/
+/CifradoCesar/dist/
+/FicherosCopia/nbproject/private/

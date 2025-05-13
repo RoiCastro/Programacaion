@@ -6,24 +6,27 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Scanner;
+import java.sql.SQLException;
 
 /**
  *
  * @author roi.castrocalvar
  */
 public class PeliculasDb {
-    String url ="jdbc:mariadb://localhost:33006/peliculas" ;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        
-        
-        try (Connection c = DriverManager.getConnection("jdbc:sqlite://localhost:33006/peliculas")) {
+        try (Connection c = DriverManager.getConnection("jdbc:sqlite:/home/roi.castrocalvar/peliculas.db")) {
             // Obtemos unha conexión coa base de datos
             System.out.println("Conexion realizada con exito");
+            String createTable = "CREATE TABLE IF NOT EXISTS films ( id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,year INTEGER NOT NULL);";
+            try (Statement st = c.createStatement()) {
+                st.executeUpdate(createTable);
+            } catch (Exception e) {
+                System.out.println("Error al crear la tabla: " + e.getMessage());
+            }
             boolean control = true;
             while (control) {
                 System.out.println("1. Inserte una nueva pelicula");
@@ -54,11 +57,11 @@ public class PeliculasDb {
                         }
                         break;
                     case 2:
-                        sql = " SELECT f.id, f.title , f.`year` FROM films f";
+                        sql = " SELECT f.id, f.title , f.year FROM films f";
                         try (Statement st = c.createStatement(); ResultSet rs = st.executeQuery(sql)) {
                             while (rs.next()) {
-                                id = rs.getInt("f.id");
-                                year = rs.getInt("f.year");
+                                id = rs.getInt("id");
+                                year = rs.getInt("year");
                                 title = rs.getString("title");
                                 System.out.println("Nome da pelicula: " + title + ", ano de estreno " + year + " e o id da pelcula e: " + id);
                             }
@@ -75,8 +78,8 @@ public class PeliculasDb {
                             try (ResultSet rs = pst.executeQuery()) {
                                 //IF para saber si encontro algun resultado
                                 if (rs.next()) {
-                                    id = rs.getInt("f.id");
-                                    year = rs.getInt("f.year");
+                                    id = rs.getInt("id");
+                                    year = rs.getInt("year");
                                     title = rs.getString("title");
                                     System.out.println("Nome da pelicula: " + title + ", ano de estreno " + year + " e o id da pelcula e: " + id);
                                 } else {
@@ -91,12 +94,10 @@ public class PeliculasDb {
                     default:
                         throw new AssertionError();
                 }
-
             }
-        } catch (Exception e) {
-            
+        } catch (SQLException e) {
             System.out.println("A conexión co servidor de bases de datos non se puido establecer");
+            System.out.println(e.getMessage());
         }
     }
-
 }

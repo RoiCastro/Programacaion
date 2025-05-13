@@ -14,6 +14,7 @@ public class PlayerDB {
 
       //NOSE IMPORTANTE REPASAR
       public static Player findByIdAndPassword(String id, String password){
+<<<<<<< Updated upstream
 // Recorremos el HashMap de jugadores de PadelManagerDB para encontrar el jugador que coincida con el id y password
         Player player = PadelManagerDB.getPlayers().get(id);
 
@@ -26,4 +27,22 @@ public class PlayerDB {
         return null;
         
     }
+=======
+         Player player = players.getId(id);
+         return null;
+        
+    }
+    /**
+     * Asi es como se usa 
+     * 
+     public static Player findByIdAndPassword(String id, String password) {
+        // Obter o xogador por Id
+        Player player = players.get(id);
+        // Comprobar se o xogador existe e se o contrasinal coincide
+        if (player != null && player.getPassword().equals(password)) {
+            return player;
+        } else {
+            return null; // Se non hai xogador ou o contrasinal non coincide
+        }*/
+>>>>>>> Stashed changes
 }
