@@ -14,7 +14,13 @@ import java.util.Scanner;
 public class DataBase {
 
     private ArrayList<Client> dataBase = new ArrayList();
+    private DBCliente dbCli = new DBCliente();
+    
+    public DataBase() {
+        DBInitCliente.init();
+    }
 
+    
     /**
      * @param args the command line arguments
      */
@@ -76,7 +82,7 @@ public class DataBase {
         System.out.println("Escribe el apellido del cliente");
         String surname = scanner.nextLine();
         Client Client = new Client(nif, name, surname);
-        dataBase.add(Client);
+       dbCli.addClient(Client);
 
     }
 
