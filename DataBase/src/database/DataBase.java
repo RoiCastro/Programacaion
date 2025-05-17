@@ -4,8 +4,10 @@
  */
 package database;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.crypto.AEADBadTagException;
 
 /**
  *
@@ -15,21 +17,20 @@ public class DataBase {
 
     private ArrayList<Client> dataBase = new ArrayList();
     private DBCliente dbCli = new DBCliente();
-    
+
     public DataBase() {
         DBInitCliente.init();
     }
 
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         DataBase dataBase = new DataBase();
         Scanner scan = new Scanner(System.in);
         int option;
-        
+
         do {
             System.out.println("Menu");
             System.out.println("Opciones");
@@ -82,7 +83,7 @@ public class DataBase {
         System.out.println("Escribe el apellido del cliente");
         String surname = scanner.nextLine();
         Client Client = new Client(nif, name, surname);
-       dbCli.addClient(Client);
+        dbCli.addClient(Client);
 
     }
 
@@ -90,32 +91,28 @@ public class DataBase {
      * Enseña los clientes de 'dataBase'
      */
     public void showClients() {
+        ArrayList<Client> dataBase = new ArrayList();
+        dataBase = dbCli.clientList();
         for (int i = 0; i < dataBase.size(); i++) {
-            System.out.println(dataBase.get(i).getNif()+"  "+dataBase.get(i).getName());
-            
+            System.out.println(dataBase.get(i).getNif() + "  "
+                    + dataBase.get(i).getName() + "  "
+                    + dataBase.get(i).getSurname());
+
         }
     }
 
     /**
      * Elimina un cliente de 'dataBase' y si no lo encuentra lo dice
+     *
      * @param nif para saber que cliente eliminar
      */
     public void removeClient(String nif) {
-
-        for (int i = 0; i < dataBase.size(); i++) {
-
-            if (nif.equals(dataBase.get(i).getNif())) {
-                dataBase.remove(i);
-                 System.out.println("Cliente eliminado");
-                return;
-            }
-        }
-        System.out.println("No se encontro el cliente.");
-
+        dbCli.removeClient(nif);
     }
 
     /**
      * Devulve el numero de clientes que se encuentra en 'dataBase'
+     *
      * @return devulve el numero sino hay nada -1
      */
     public int numClients() {

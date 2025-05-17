@@ -4,44 +4,33 @@
  */
 package tacebook.view;
 
-import tacebook.controller.ProfileController;
 import tacebook.model.Profile;
-import java.util.Scanner;
 
 /**
  *
- * @author roi.castrocalvar
+ * @author Roi
  */
-public class ProfileView {
-    
-    private int postsShowed = 10;
-    private ProfileController profileController;
+public interface ProfileView {
 
-    public int getPostsShowed() {
-        return postsShowed;
-    }
+    public int getPostsShowed();
 
-    public ProfileView(ProfileController profileController) {
-        this.profileController = profileController;
-    }
-    
-    private void showProfileInfo(boolean ownProfile, Profile profile) {
-    // Comprobar si es el propio perfil
-    if (ownProfile) {
-        // Mostrar el nombre y estado actual del perfil
-        System.out.println("Nombre: " + profile.getName());
-        System.out.println("Estado actual: " + profile.getStatus());
-    } else {
-        System.out.println("Este es el perfil de otro usuario.");
-        System.out.println("Nombre: " + profile.getName());
-        System.out.println("Estado actual: " + profile.getStatus());
-    }
-}
+    public void showProfileMenu(Profile profile);
 
-    private void changeStatus(boolean ownProfile, Scanner scanner, Profile profile){
-        
-    }
-    public void showProfileMenu(Profile profile){
-        
-    }
+    public void showProfileNotFoundMessage();
+
+    public void showCannotLikeOwnPostMessage();
+
+    public void showAlreadyLikedPostMessage();
+
+    public void showIsAlreadyFriendMessage(String profileName);
+
+    public void showExistsFrienshipRequestMessage(String profileName);
+
+    public void showDuplicateFrienshipRequestMessage(String profileName);
+
+    public void showConnectionErrorMessage();
+
+    public void showReadErrorMessage();
+
+    public void showWriteErrorMessage();
 }

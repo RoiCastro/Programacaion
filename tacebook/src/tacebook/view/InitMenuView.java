@@ -4,60 +4,24 @@
  */
 package tacebook.view;
 
-import tacebook.controller.InitMenuController;
-import java.util.Scanner;
-
-public class InitMenuView {
-
-    private InitMenuController controller;
-    private Scanner scan = new Scanner(System.in);
-
-    public boolean showLoginMenu() {
-        System.out.println("1. Inicio de sesion");
-        System.out.println("2. Crear Usuario");
-        System.out.println("3. Sair");
-
-        int var = scan.nextInt();
-        switch (var) {
-            case 1:
-                //controller.login();
-                break;
-            case 2:
-                //controller.register();
-                break;
-            case 3:
-                return true;
-            default:
-                throw new AssertionError();
-        }
-        return false;
-    }
-
-    public void showLoginErrorMessage() {
-        System.out.println("Contrasinal incorrecta");
-    }
-
-    public void showRegisterMenu() {
-        System.out.println("Escribe a continuacion tu nombre de usuario");
-        String name = scan.next();
-        //Ponemos las dos contraseñas a distintas para entrar al bucle
-        String contrasinal = "";
-        String contrasinal2 = null;
-        while (contrasinal != contrasinal2) {
-            System.out.println("Escribe a continuacion tu contraseña");
-            contrasinal = scan.next();
-            System.out.println("Escribe de nuevo la contraseña");
-            contrasinal2 = scan.next();
-            if (contrasinal != contrasinal2)  {
-                System.out.println("La contraseña tiene que coincidir");
-            }
-            //controller.createProfile();
-        }
-
-    }
-    public String showNewNameMenu(){
-        System.out.println("O nome xa esta en uso");
-        System.out.println("Escribe un novo nome:");
-        return scan.nextLine();
-    }
+/**
+ *
+ * @author Roi
+ */
+public interface InitMenuView {
+    // Método para mostrar el menú de inicio de sesión, que devuelve un valor booleano
+    public boolean showLoginMenu();
+    
+    // Métodos para mostrar mensajes de error, sin retorno (void)
+    public void showLoginErrorMessage();
+    public void showConnectionErrorMessage();
+    public void showReadErrorMessage();
+    public void showWriteErrorMessage();
+    
+    // Método para mostrar un menú para cambiar nombre, que devuelve un String
+    public String showNewNameMenu();
+    
+    // Método para mostrar el menú de registro, sin retorno (void)
+    public void showRegisterMenu();
 }
+
